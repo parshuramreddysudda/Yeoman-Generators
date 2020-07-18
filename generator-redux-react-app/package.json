@@ -1,0 +1,17 @@
+{
+  "name": "redux",
+  "version": "1.0.0",
+  "description": "Yeoman generator example",
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "author": "Parshuram",
+  "license": "MIT",
+  "dependencies": {
+    "lower-case": "^2.0.1",
+    "yeoman-generator": "^3.2.0"
+  }
+}
