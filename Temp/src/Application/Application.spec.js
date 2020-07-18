@@ -1,5 +1,5 @@
 import React from 'react'
-import <%= componentUpper %>  from './<%= componentUpper %> '
+import Application  from './Application '
 import { mount, shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16';
 import { configure } from 'enzyme';
@@ -7,9 +7,9 @@ import { configure } from 'enzyme';
 configure({ adapter: new Adapter() });
 
 
-describe('Testing <%= componentUpper %>s Component', () => {
+describe('Testing Applications Component', () => {
 
-    test('should handle <%= componentUpper %> component', () => {
+    test('should handle Application component', () => {
 
     });
 

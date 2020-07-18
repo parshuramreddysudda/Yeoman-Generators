@@ -1,19 +1,19 @@
-.Example  {
+.Dashboard  {
   text-align: center;
 }
 
-.Example -logo {
+.Dashboard -logo {
   height: 40vmin;
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .Example -logo {
-    animation: Example -logo-spin infinite 20s linear;
+  .Dashboard -logo {
+    animation: Dashboard -logo-spin infinite 20s linear;
   }
 }
 
-.Example -header {
+.Dashboard -header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -24,11 +24,11 @@
   color: white;
 }
 
-.Example -link {
+.Dashboard -link {
   color: #61dafb;
 }
 
-@keyframes Example -logo-spin {
+@keyframes Dashboard -logo-spin {
   from {
     transform: rotate(0deg);
   }

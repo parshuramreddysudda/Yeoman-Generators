@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import Example from './Example';
+import { Provider } from 'react-redux';
+import store from './store';
+import Dashboard from './Dashboard';
+import AuthHelper from  './Auth/AuthHelper'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Example />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+ReactDOM.render(<Provider store={store}>
 
+  <Dashboard/>
+
+</Provider>, document.getElementById('root'));

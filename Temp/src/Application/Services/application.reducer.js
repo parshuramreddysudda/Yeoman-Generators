@@ -4,99 +4,99 @@ const initialState = {
     error: null,
     updating: false
   }
+  application
   
-  const appReducer = (state = initialState, action) => {
+  const applicationReducer = (state = initialState, action) => {
     switch (action.type) {
   
-      case 'FETCH_APP_PENDING':
+      case 'FETCH_APPLICATION_PENDING':
         return {
           ...state,
           loading: true
         };
-      case 'FETCH_APP_COMPLETED':
+      case 'FETCH_APPLICATION_COMPLETED':
         return {
           ...state,
           loading: false
         };
   
-      case 'FETCH_APP_SUCCESS':
+      case 'FETCH_APPLICATION_SUCCESS':
         return {
           ...state,
           items: action.payload
         };
   
-      case 'FETCH_APP_ERROR':
+      case 'FETCH_APPLICATION_ERROR':
         return {
           ...state,
           error: action.payload
         };
-      case 'RESET_APP':
+      case 'RESET_APPLICATION':
         return {
           ...state,
           items: []
         }
-      case 'UPDATE_APP_PENDING':
+      case 'UPDATE_APPLICATION_PENDING':
         return {
           ...state,
           updating: true
         };
-      case 'UPDATE_APP_COMPLETED':
+      case 'UPDATE_APPLICATION_COMPLETED':
         return {
           ...state,
           updating: false
         };
-      case 'UPDATE_APP_ERROR':
+      case 'UPDATE_APPLICATION_ERROR':
         return {
           ...state,
           error: action.payload
         }; 
-      case 'UPDATE_APP_SUCCESS':
+      case 'UPDATE_APPLICATION_SUCCESS':
   
         return {
           ...state,
           items:action.payload.newData
         }
-      case 'DELETE_APP_PENDING':
+      case 'DELETE_APPLICATION_PENDING':
         return {
           ...state,
           loading: true
         };
-      case 'DELETE_APP_COMPLETED':
+      case 'DELETE_APPLICATION_COMPLETED':
         return {
           ...state,
           loading: false
         };
   
-      case 'DELETE_APP_SUCCESS':
-        let deleteAppId = action.payload
+      case 'DELETE_APPLICATION_SUCCESS':
         return {
           ...state,
-          items: [...state.items.filter(app => app.id !== deleteAppId)]
+          // items: delete id logic
         };
   
-      case 'DELETE_APP_ERROR':
+      case 'DELETE_APPLICATION_ERROR':
         return {
           ...state,
           error: action.payload
         };
-        case 'CREATE_APP_PENDING':
+        case 'CREATE_APPLICATION_PENDING':
         return {
           ...state,
           loading: true
         };
-      case 'CREATE_APP_COMPLETED':
+      case 'CREATE_APPLICATION_COMPLETED':
         return {
           ...state,
           loading: false
         };
   
-      case 'CREATE_APP_SUCCESS':
+      case 'CREATE_APPLICATION_SUCCESS':
         return {
           ...state,
-          items: [...state.items,action.payload.params]
+          // items: Create id logic,
         };
   
-      case 'CREATE_APP_ERROR':
+      case 'CREATE_APPLICATION_ERROR':
         return {
           ...state,
           error: action.payload
@@ -107,4 +107,4 @@ const initialState = {
     }
   
   }
-  export default appReducer;
+  export default applicationReducer;

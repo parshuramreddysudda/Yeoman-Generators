@@ -1,17 +1,17 @@
 import React from 'react';
 import logo from './logo.svg';
-import './<%= appName %> .css';
+import './<%= appName %>.css';
 
-function <%= appName %> () {
+function <%= appName %>() {
   return (
-    <div className="<%= appName %> ">
-      <header className="<%= appName %> -header">
-        <img src={logo} className="<%= appName %> -logo" alt="logo" />
+    <div className="<%= appName %>">
+      <header className="<%= appName %>-header">
+        <img src={logo} className="<%= appName %>-logo" alt="logo" />
         <p>
-          Edit <code>src/<%= appName %> .js</code> and save to reload.
+          Edit <code>src/<%= appName %>.js</code> and save to reload.
         </p>
         <a
-          className="<%= appName %> -link"
+          className="<%= appName %>-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
@@ -23,4 +23,4 @@ function <%= appName %> () {
   );
 }
 
-export default <%= appName %> ;
+export default <%= appName %>;

@@ -13,6 +13,7 @@
   "dependencies": {
     "capitalize-first-letter": "^1.0.0",
     "lower-case": "^2.0.1",
+    "upper-case": "^2.0.1",
     "yeoman-generator": "^3.2.0"
   }
 }
