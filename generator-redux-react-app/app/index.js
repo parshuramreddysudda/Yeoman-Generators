@@ -1,5 +1,6 @@
 const Generator = require('yeoman-generator');
 var lowerCase = require('lower-case')
+var captilizeFirstLetter = require('capitalize-first-letter')
 module.exports = class extends Generator {
     constructor(args, options) {
         super(args, options);
@@ -8,7 +9,7 @@ module.exports = class extends Generator {
     // first stage
     async prompting() {
         this.log('Generator starting... 🤖');
-        this.log('Lets Create a React App today ... 🤖');
+        this.log('Lets Create a react-redux App today ... 🤖');
 
         this.answers = await this.prompt([
             {
@@ -29,15 +30,19 @@ module.exports = class extends Generator {
                 message: 'Do yo want to add Test files to Project',
                 choices: ['Yes', 'No'],
             },
+            {
+                type: 'input',
+                name: 'component',
+                message: 'Add your any Component name, We will setup the Store and container for it',
+                validate: input => Boolean(input.length),
+            },
         ]);
     }
-
-
-    // second stage
     writing() {
         this.log('Writing files... 📝');
 
-        const { name, app, test } = this.answers;
+        const { name, app, test, component } = this.answers;
+        component = captilizeFirstLetter(component)
         let appName = 'App';
         this.log('Writing files in Public/... 📝');
         this.fs.copyTpl(
@@ -64,6 +69,7 @@ module.exports = class extends Generator {
         );
         if (app === 'No') {
             appName = name;
+            appName = captilizeFirstLetter(appName);
         }
         this.fs.copyTpl(
             this.templatePath('_src/_index.js'),
@@ -93,6 +99,31 @@ module.exports = class extends Generator {
                 appName: lowerCase.lowerCase(appName)
             },
         );
+        component
+
+        //Writing Redux files 
+
+        this.fs.copyTpl(
+            this.templatePath('_Component/apps.scss'),
+            this.destinationPath(`src/${component}/${component}.scss`),
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('_Component/Apps.js'),
+            this.destinationPath(`src/${component}/${component}.js`),
+            {
+                componentUpper: component,
+                componentLower: lowerCase.lowerCase(component)
+            },
+        );
+        this.fs.copyTpl(
+            this.templatePath('_Component/AppsContainer.js'),
+            this.destinationPath(`src/${component}/${component}Container.js`),
+            {
+                componentUpper: component,
+                componentLower: lowerCase.lowerCase(component)
+            },
+        );
         // Writing Test files 
         if (test === 'Yes') {
 
@@ -114,6 +145,14 @@ module.exports = class extends Generator {
             this.fs.copyTpl(
                 this.templatePath('_test/_setupTests.js'),
                 this.destinationPath(`src/_setupTests.js`),
+            );
+            this.fs.copyTpl(
+                this.templatePath('_Component/Apps.spec.js'),
+                this.destinationPath(`src/${component}/${component}.spec.js`),
+                {
+                    componentUpper: component,
+                    componentLower: lowerCase.lowerCase(component)
+                },
             );
         }
 
