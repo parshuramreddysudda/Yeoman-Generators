@@ -1,5 +1,5 @@
 {
-  "name": "redux",
+  "name": "generator-table",
   "version": "1.0.0",
   "description": "Yeoman generator example",
   "files": [
@@ -11,7 +11,6 @@
   "author": "Parshuram",
   "license": "MIT",
   "dependencies": {
-    "capitalize-first-letter": "^1.0.0",
     "lower-case": "^2.0.1",
     "yeoman-generator": "^3.2.0"
   }
