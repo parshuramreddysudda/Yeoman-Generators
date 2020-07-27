@@ -4,7 +4,6 @@ const initialState = {
     error: null,
     updating: false
   }
-  <%= componentLower %>
   
   const <%= componentLower %>Reducer = (state = initialState, action) => {
     switch (action.type) {

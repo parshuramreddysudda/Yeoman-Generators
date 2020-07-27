@@ -141,6 +141,10 @@ module.exports = class extends Generator {
                 componentLower: lowerCase.lowerCase(component)
             },
         );
+        this.fs.copyTpl(
+            this.templatePath('_src/_store.js'),
+            this.destinationPath(`src/store.js`),
+        );
         //Writing Redux Services
         // Add Crud Services only when user want it to be 
         if (crud === 'Yes') {
